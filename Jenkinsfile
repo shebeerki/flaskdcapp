@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage ("build"){
             steps {
-                sh 'docker build --tag aurbnb:1.0 .'
 
                 echo "done build \n"
             }
