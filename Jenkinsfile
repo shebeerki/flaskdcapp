@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage ("build"){
             steps {
-                echo "building \n"
+                docker build --tag aurbnb:1.0 .
+
+                echo "done build \n"
             }
         }
         stage ("test"){
@@ -14,6 +16,9 @@ pipeline {
         stage ("deploy"){
             steps {
                 echo "deploying \n"
+                docker run --publish 5000:5000 --detach --name arbnb aurbnb:1.0
+                echo "deployed \n"
+
             }
         }
     }
